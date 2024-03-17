@@ -41,4 +41,4 @@ main()
 
 ## Credits
 
-Postgres mini was created based on inspiration from Lei Nelissen [embedded-postgres](https://github.com/leinelissen/embedded-postgres) package.
+Postgres mini was created based on the inspiration of Lei Nelissen [embedded-postgres](https://github.com/leinelissen/embedded-postgres) package.
