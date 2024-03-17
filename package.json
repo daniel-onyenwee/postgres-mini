@@ -1,0 +1,45 @@
+{
+  "name": "postgres-mini",
+  "version": "0.1.0",
+  "description": "A package to run an mini Postgresql database right from NodeJS",
+  "main": "lib/index.js",
+  "type": "module",
+  "scripts": {
+    "tsc:build": "tsc --build",
+    "tsc:watch": "tsc --watch",
+    "doc": "typedoc --options typedoc.json"
+  },
+  "keywords": [
+    "postgres",
+    "postgresql",
+    "database",
+    "sql",
+    "mini"
+  ],
+  "author": "daniel-onyenwee",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/async-exit-hook": "^2.0.2",
+    "@types/node": "^20.11.27",
+    "@types/pg": "^8.11.2",
+    "typedoc": "^0.25.12",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "async-exit-hook": "^2.0.1",
+    "find-free-ports": "^3.1.1",
+    "pg": "^8.11.3",
+    "window-postgres-installer": "^0.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel-onyenwee/postgres-mini.git"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

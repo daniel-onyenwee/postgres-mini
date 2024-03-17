@@ -1,0 +1,9 @@
+{
+    "out": "docs",
+    "entryPoints": [
+        "./src/index.ts"
+    ],
+    "name": "Postgres Mini",
+    "includeVersion": true,
+    "readme": "README.md"
+}
