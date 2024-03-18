@@ -1,7 +1,7 @@
 {
   "name": "postgres-mini",
   "version": "0.1.0",
-  "description": "A package to run an mini Postgresql database right from NodeJS",
+  "description": "A package to run an mini postgresql database right from NodeJS",
   "main": "lib/index.js",
   "type": "module",
   "scripts": {
