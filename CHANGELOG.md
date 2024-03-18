@@ -1,5 +1,5 @@
 # Changelog
 
-## v0.1.0 (2024-03-17)
+## v0.1.0 (2024-03-18)
 
 - Initial release.
