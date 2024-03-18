@@ -39,6 +39,8 @@ main()
 
 ## Documentation
 
+[Link](https://daniel-onyenwee.github.io/postgres-mini/)
+
 ## Credits
 
 Postgres mini was created based on the inspiration of Lei Nelissen [embedded-postgres](https://github.com/leinelissen/embedded-postgres) package.
