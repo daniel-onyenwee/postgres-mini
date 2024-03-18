@@ -1,3 +1,5 @@
+import type PostgresInstance from "./src/utils/postgres-instance.js"
+
 export interface PostgresInstanceOptions {
     /** 
      * The location where the data should be persisted to. Defaults to: `./data/db` 
@@ -103,7 +105,7 @@ export interface PostgresObject {
     /**
      * Loop through all the postgres instances.
      */
-    forEach(cb: (instance: PostgresInstance, id: string, postgres: any) => void): void;
+    forEach(cb: (instance: PostgresInstance, id: string, postgres: PostgresObject) => void): void;
     /**
      * Get all the postgres instances.
      */
