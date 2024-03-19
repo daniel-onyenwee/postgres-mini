@@ -1,5 +1,3 @@
-import type PostgresInstance from "./src/utils/postgres-instance.js"
-
 export interface PostgresInstanceOptions {
     /** 
      * The location where the data should be persisted to. Defaults to: `./data/db` 
@@ -71,52 +69,3 @@ export interface PostgresInstanceOptions {
     onError: (messageOrError: string | Error | unknown) => void
 
 }
-
-export interface PostgresObject {
-    /**
-     * Create a postgres instance.
-     * @param id instance id. It should be unique.
-     * @param options instance configuration options.
-     */
-    create(id?: string | null, options?: Partial<PostgresInstanceOptions> | null): Promise<PostgresInstance>;
-    /**
-     * Get a postgres instance.
-     * @param id instance id.
-     */
-    get(id: string): PostgresInstance | undefined;
-    /**
-     * Delete a postgres instance.
-     * @param id instance id.
-     */
-    delete(id: string): void;
-    /**
-     * Check if a postgres instance exist.
-     * @param id instance id.
-     */
-    has(id: string): boolean;
-    /**
-     * Clear all postgres instances exist.
-     */
-    clear(): void;
-    /**
-     * Get all the postgres instances id.
-     */
-    ids(): string[];
-    /**
-     * Loop through all the postgres instances.
-     */
-    forEach(cb: (instance: PostgresInstance, id: string, postgres: PostgresObject) => void): void;
-    /**
-     * Get all the postgres instances.
-     */
-    instances(): PostgresInstance[];
-    /**
-     * Stop a postgres instance.
-     * @param id instance id.
-     */
-    stop(id: string): Promise<void>;
-    /**
-     * Stop all postgres instances.
-     */
-    stopAll(): Promise<void>;
-};

@@ -1,7 +1,56 @@
-import { PostgresInstanceOptions, PostgresObject } from "../global.js"
 import AsyncExitHook from "async-exit-hook"
 import { generateId as generatePostgresInstanceID, PostgresInstance } from "./utils/index.js"
 import { findFreePorts } from "find-free-ports"
+import { PostgresInstanceOptions } from "../global.js";
+
+interface PostgresObject {
+    /**
+     * Create a postgres instance.
+     * @param id instance id. It should be unique.
+     * @param options instance configuration options.
+     */
+    create(id?: string | null, options?: Partial<PostgresInstanceOptions> | null): Promise<PostgresInstance>;
+    /**
+     * Get a postgres instance.
+     * @param id instance id.
+     */
+    get(id: string): PostgresInstance | undefined;
+    /**
+     * Delete a postgres instance.
+     * @param id instance id.
+     */
+    delete(id: string): void;
+    /**
+     * Check if a postgres instance exist.
+     * @param id instance id.
+     */
+    has(id: string): boolean;
+    /**
+     * Clear all postgres instances exist.
+     */
+    clear(): void;
+    /**
+     * Get all the postgres instances id.
+     */
+    ids(): string[];
+    /**
+     * Loop through all the postgres instances.
+     */
+    forEach(cb: (instance: PostgresInstance, id: string, postgres: PostgresObject) => void): void;
+    /**
+     * Get all the postgres instances.
+     */
+    instances(): PostgresInstance[];
+    /**
+     * Stop a postgres instance.
+     * @param id instance id.
+     */
+    stop(id: string): Promise<void>;
+    /**
+     * Stop all postgres instances.
+     */
+    stopAll(): Promise<void>;
+};
 
 const defaultsPostgresInstanceOptions: PostgresInstanceOptions = {
     port: 5432,
@@ -94,5 +143,6 @@ async function gracefulShutdown(done: () => void) {
 AsyncExitHook(gracefulShutdown)
 
 export { PostgresInstance, generateId as generatePostgresInstanceID } from "./utils/index.js"
-export { PostgresInstanceOptions, type PostgresObject } from "../global.js"
+export { PostgresInstanceOptions } from "../global.js"
+export { PostgresObject }
 export default Postgres
