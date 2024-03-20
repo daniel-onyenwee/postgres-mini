@@ -15,7 +15,7 @@ import Postgres from 'postgres-mini'
 
 async function main() {
     // Create a postgres instance.
-    const pgInstance = Postgres.create()
+    const pgInstance = await Postgres.create()
 
     // Initialize the postgres instance and set all configuration  
     await pgInstance.initialize()
