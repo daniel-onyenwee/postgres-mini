@@ -1,7 +1,7 @@
 import AsyncExitHook from "async-exit-hook"
 import { generateId as generatePostgresInstanceID, PostgresInstance } from "./utils/index.js"
 import { findFreePorts } from "find-free-ports"
-import { PostgresInstanceOptions } from "../global.js";
+import { PostgresInstanceOptions } from "../global.js"
 
 interface PostgresObject {
     /**

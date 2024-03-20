@@ -176,13 +176,16 @@ export default class PostgresInstance {
 
     /**
      * Make a query on the postgres instance.
+     * 
+     * @param database The database that the postgres client should perform the query from 
+     * @param host The host that the postgres client should connect to
      */
-    async query<T extends QueryResultRow = any>(queryTextOrConfig: string, values: any[] = []) {
+    async query<T extends QueryResultRow = any>(queryTextOrConfig: string, values: any[] = [], database = "postgres", host = "localhost"): Promise<pg.QueryResult<T>> {
         if (!this.#process) {
             throw new Error('Your postgres instance must be running before you can create a database')
         }
 
-        const client = this.client()
+        const client = this.client(database, host)
         await client.connect()
         const query = await client.query<T>(queryTextOrConfig, values)
 
@@ -248,7 +251,7 @@ export default class PostgresInstance {
      * @param host The host that should be pre-filled in the connection options
      * @returns Client
      */
-    client(database = "postgres", host = "localhost") {
+    client(database = "postgres", host = "localhost"): pg.Client {
         // Create client
         const client = new Client({
             user: this.#options.user,
