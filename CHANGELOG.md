@@ -6,4 +6,8 @@
 
 ## v0.1.1 (2024-03-20)
 
-- Fix type error: PostgresInstance is not resolved.
+- Fix type error: `PostgresInstance` is not resolved.
+
+## v0.1.2 (2024-03-20)
+
+- Refactor `PostgresInstance` class query method.
